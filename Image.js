@@ -9,7 +9,7 @@ const Image = () => {
  `;
 };
 
-const div2 = document.createElement("div2");
+const div2 = document.createElement("div");
 div2.innerHTML = Image();
 
 export default div2;
