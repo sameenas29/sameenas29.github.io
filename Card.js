@@ -1,11 +1,12 @@
-const Container = () => {
+const Card = () => {
   return `
-   <div>
-    
-   </div>
+   <p style="color:blue;font-size:4600px;">
+    I'm a big, blue, <strong>strong</strong> paragraph
+   </p>
 `;
 };
 
-const main = document.createElement("main");
-main.innerHTML = markup(backpack);
-document.body.appendChild(main);
+const div3 = document.createElement("div");
+div3.innerHTML = Card();
+
+export default div3;
