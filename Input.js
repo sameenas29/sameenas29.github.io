@@ -1,6 +1,6 @@
 const Input = () => {
   return `
-   <div id="input">
+   <div class="input">
     <input type="text" id="input" value="Hey" />
    </div> 
    `;

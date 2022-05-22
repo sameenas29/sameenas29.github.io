@@ -1,31 +1,25 @@
-import Card from "./Card.js";
 import Data from "./Data.js";
 
-function returnHtml(item) {
-  let x= item.title;
-  let y= item.previewImage;
+function returnCards(item, index) {
 
+  let ImgSrc= item.previewImage;
+  let ImgTitle= item.title;
+  
   return`
-   <div id="container">
-    <img
-     id="token"
-     src=${x}
-    />
-    <div id="name">
-     <p>${y}</p>
+    <div class="nameTag" data-index="${index}">
+     <img
+      class="nameTagPic"
+      src=${ImgSrc}
+     />
+     <div class="nameTagTitle">
+      <span> ${ImgTitle} </span>
+     </div>
     </div>
-   </div>
   `;
 };
 
-const CardList = () => {
+const CardList = document.createElement("div");
+CardList.innerHTML = Data.map(returnCards).join('');
+CardList.setAttribute('class', 'cardList');
 
- let cards = Data.map(returnHtml);
- return cards;
- 
-};
-
-const div3 = document.createElement("div");
-div3.innerHTML = CardList();
-
-export default div3;
+export default CardList;

@@ -4,7 +4,20 @@
     <link rel="stylesheet" type="text/css" href="Index.css" />
   </head>
   <body>
-    <div id="App"></div>
+    <div id="app">
+      <div id="listContainer"> </div>
+    </div>
     <script type="module" src="./Container.js"></script>
+    <script type="module" src="./Data.js"></script>
+
+    <script>
+      document.getElementsByClassName('nameTag').forEach(element => {
+        element.addEventListener('click', (event) => {
+          console.log(event.currentTarget, event.target, event.target.dataset.index);
+          console.log(Data[event.target.dataset.index])
+        });
+      });
+
+    </script>
   </body>
 </html>
