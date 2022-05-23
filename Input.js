@@ -1,8 +1,10 @@
+import Data from './Data.js';
+
 const Input = () => {
   return `
    <div class="input">
-    <input id="inputValue" type="text"/>
-   </div> 
+    <input id="inputValue" type="text" value="${Data[0].title}"/>
+   </div>
    `;
 };
 

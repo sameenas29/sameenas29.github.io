@@ -12,16 +12,61 @@
     <script type="module">
       import Data from "./Data.js";
 
+      let curImageIndex = 0;
+
+      function selectCard(updatedIndex) {
+        curImageIndex = updatedIndex;
+        document.getElementById('myImage').setAttribute("src",Data[curImageIndex].previewImage);
+        document.getElementById('inputValue').setAttribute("value",Data[curImageIndex].title);   
+        Array.from(document.getElementsByClassName('nameTag')).forEach((nameTag) => {
+          nameTag.setAttribute('class', 'nameTag');
+        })
+        document.getElementsByClassName('nameTag')[curImageIndex].setAttribute('class', 'nameTag highlight');
+      }
+      
       Array.from(document.getElementsByClassName('nameTag')).forEach(element => {
         element.addEventListener('click', (event) => {
-          console.log(event.currentTarget, event.target, event.currentTarget.dataset.index);
-          console.log(Data[event.currentTarget.dataset.index]);
-          document.getElementById('myImage').setAttribute("src",Data[event.currentTarget.dataset.index].previewImage);
-          document.getElementById('inputValue').setAttribute("value",Data[event.currentTarget.dataset.index].title);   
-          
+           selectCard(event.currentTarget.dataset.index);
         });
       });
 
+      Array.from(document.getElementsByClassName('nameTag')).forEach(element => {
+        element.addEventListener('onkeydown', (event) => {
+           switch (event.keyCode) {
+            case 37: {
+              console.log("Left key is pressed.");
+              break;
+            }
+            case 38: {
+              if(curImageIndex==0){
+                console.log("nothing");
+              }
+              else {
+                selectCard(curImageIndex-1);
+                console.log("Up key is pressed.");
+              }
+              break;
+            }
+            case 39:
+              console.log("Right key is pressed.");
+              break;
+            case 40:
+              if(curImageIndex==Data.length-1){
+              console.log("nothing");
+              }
+              else {
+                selectCard(curImageIndex+1);
+                console.log("Down key is pressed.");
+              }
+              break;
+          }
+        });
+      });
+
+    </script>
+
+    <script>
+      document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
     </script>
   </body>
 </html>
