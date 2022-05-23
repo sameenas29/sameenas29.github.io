@@ -8,7 +8,9 @@
 }
 
 .nametag{
-
+  display:flex;
+  align-items:center;
+  padding:12px;
 }
 
 .nameTag:hover {
@@ -19,10 +21,6 @@
 .nameTagTitle {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  overflow:hidden;
-}
-
-.nameTagTitle span{
   white-space:nowrap;
   overflow:hidden;
   text-overflow: ellipsis;
@@ -41,6 +39,10 @@
 
 .input{
     width:450px;
+}
+
+.input input {
+  width: 100%;
 }
 
 .imageContainer {
