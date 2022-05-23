@@ -8,7 +8,7 @@ const Input = () => {
    `;
 };
 
-const Div = document.createElement("div");
-Div.innerHTML = Input();
+const InputContainer = document.createElement("div");
+InputContainer.innerHTML = Input();
 
-export default Div;
+export default InputContainer;

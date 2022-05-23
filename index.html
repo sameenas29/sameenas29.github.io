@@ -6,34 +6,32 @@
   <body>
     <div id="app">
       <div id="listContainer"> </div>
-    </div>
-    <script type="module" src="./Container.js"></script>
+      </div>
+      <script type="module" src="./Container.js"></script>
 
-    <script type="module">
+      <script type="module">
       import Data from "./Data.js";
-
       const dataStore = Data;
-
       let curImageIndex = 0;
 
       function selectCard(updatedIndex) {
         curImageIndex = updatedIndex;
         document.getElementById('myImage').setAttribute("src",dataStore[curImageIndex].previewImage);
-        document.getElementById('inputValue').setAttribute("value",dataStore[curImageIndex].title);   
+        document.getElementById('inputValue').setAttribute("value",dataStore[curImageIndex].title); 
         Array.from(document.getElementsByClassName('nameTag')).forEach((nameTag) => {
           nameTag.setAttribute('class', 'nameTag');
         })
         document.getElementsByClassName('nameTag')[curImageIndex].setAttribute('class', 'nameTag highlight');
-      }
-      
-      Array.from(document.getElementsByClassName('nameTag')).forEach(element => {
-        element.addEventListener('click', (event) => {
-           selectCard(Number(event.currentTarget.dataset.index));
-        });
-      });
+        }
 
+        Array.from(document.getElementsByClassName('nameTag')).forEach(element => {
+        element.addEventListener('click', (event) => {
+            selectCard(Number(event.currentTarget.dataset.index));
+          });
+        });
+        
         document.addEventListener('keydown', (event) => {
-           switch (event.keyCode) {
+            switch (event.keyCode) {
             case 37: {
               console.log("Left key is pressed.");
               break;
@@ -65,20 +63,19 @@
               break;
           }
         });
-
-
       
       document.getElementById("inputValue").addEventListener('keypress',(event) => {
-          let curValue = document.getElementById("inputValue").value;
-          document.getElementsByClassName('nameTag')[curImageIndex].children[1].children[0].innerHTML = curValue;
-          dataStore[curImageIndex].title = curValue;
+        let curValue = document.getElementById("inputValue").value;
+        document.getElementsByClassName('nameTag')[curImageIndex].children[1].children[0].innerHTML = curValue;
+        dataStore[curImageIndex].title = curValue;
       });
-    </script>
+      </script>
 
-    <script>
+     <script>
       document.addEventListener('load', function() {
-        document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
+      document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
       })
     </script>
+
   </body>
 </html>

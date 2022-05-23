@@ -4,7 +4,7 @@ import Data from "./Data.js";
 const Image = () => {
   return `
     <img id="myImage"
-    src="${Data[0].previewImage}"
+     src="${Data[0].previewImage}"
     />
  `;
 };
