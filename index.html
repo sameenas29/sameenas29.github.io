@@ -30,8 +30,7 @@
         });
       });
 
-      Array.from(document.getElementsByClassName('nameTag')).forEach(element => {
-        element.addEventListener('onkeydown', (event) => {
+        document.addEventListener('keydown', (event) => {
            switch (event.keyCode) {
             case 37: {
               console.log("Left key is pressed.");
@@ -61,12 +60,13 @@
               break;
           }
         });
-      });
 
     </script>
 
     <script>
-      document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
+      document.addEventListener('load', function() {
+        document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
+      })
     </script>
   </body>
 </html>
