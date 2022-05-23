@@ -17,7 +17,7 @@
       function selectCard(updatedIndex) {
         curImageIndex = updatedIndex;
         document.getElementById('myImage').setAttribute("src",dataStore[curImageIndex].previewImage);
-        document.getElementById('inputValue').setAttribute("value",dataStore[curImageIndex].title); 
+        document.getElementById('inputValue').value = dataStore[curImageIndex].title; 
         Array.from(document.getElementsByClassName('nameTag')).forEach((nameTag) => {
           nameTag.setAttribute('class', 'nameTag');
         })
@@ -29,7 +29,7 @@
             selectCard(Number(event.currentTarget.dataset.index));
           });
         });
-        
+
         document.addEventListener('keydown', (event) => {
             switch (event.keyCode) {
             case 37: {
@@ -71,11 +71,11 @@
       });
       </script>
 
-     <script>
-      document.addEventListener('load', function() {
-      document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
-      })
-    </script>
+      <script>
+        document.addEventListener('load', function() {
+          document.getElementsByClassName('nameTag')[0].setAttribute('class', 'nameTag highlight');
+        })
+      </script>
 
   </body>
 </html>

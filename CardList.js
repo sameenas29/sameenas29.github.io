@@ -1,5 +1,17 @@
 import Data from "./Data.js";
 
+function addDots(string)
+{
+  var dots = "....";
+  if(string.length > 40)
+  {
+    string = string.substring(0,20) + dots + string.substring(string.length-15,string.length-1);
+  }
+ 
+    return string;
+}
+
+
 function returnCards(item, index) {
 
   let ImgSrc= item.previewImage;
@@ -12,7 +24,7 @@ function returnCards(item, index) {
       src=${ImgSrc}
      />
      <div class="nameTagTitle">
-      <span> ${ImgTitle} </span>
+      <span> ${addDots(ImgTitle)} </span>
      </div>
     </div>
   `;
