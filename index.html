@@ -8,13 +8,17 @@
       <div id="listContainer"> </div>
     </div>
     <script type="module" src="./Container.js"></script>
-    <script type="module" src="./Data.js"></script>
 
-    <script>
-      document.getElementsByClassName('nameTag').forEach(element => {
+    <script type="module">
+      import Data from "./Data.js";
+
+      Array.from(document.getElementsByClassName('nameTag')).forEach(element => {
         element.addEventListener('click', (event) => {
-          console.log(event.currentTarget, event.target, event.target.dataset.index);
-          console.log(Data[event.target.dataset.index])
+          console.log(event.currentTarget, event.target, event.currentTarget.dataset.index);
+          console.log(Data[event.currentTarget.dataset.index]);
+          document.getElementById('myImage').setAttribute("src",Data[event.currentTarget.dataset.index].previewImage);
+          document.getElementById('inputValue').setAttribute("value",Data[event.currentTarget.dataset.index].title);   
+          
         });
       });
 
