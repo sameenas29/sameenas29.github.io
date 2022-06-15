@@ -7,20 +7,7 @@
     <div id="app">
       <div id="listContainer"> </div>
       </div>
-      <!-- <script src="node_modules/axe-core/axe.min.js">
-        axe
-        .run()
-        .then(results => {
-         if (results.violations.length) {
-          throw new Error('Accessibility issues found');
-          }
-        })
-        .catch(err => {
-         console.error('Something bad happened:', err.message);
-        });
-      </script> -->
       <script type="module" src="./Container.js"></script>
-
       <script type="module">
       import Data from "./Data.js";
       const dataStore = Data;
